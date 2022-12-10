@@ -1,0 +1,17 @@
+import numpy as np
+import sep
+import astropy.io.fits
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+
+%matplotlib inline 
+rcParams['figure.figsize'] = [10., 8.] 
+data = astropy.io.fits.read("../data/image.fits")
+m, s = np.mean(data), np.std(data)
+plt.imshow(data, interpolation='nearest', cmap='gray', vmin=m-s, vmax=m+s, origin='lower')
+plt.colorbar();
+
+
+
+
+
